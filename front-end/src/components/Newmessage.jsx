@@ -8,11 +8,17 @@ function Newmessage({ reply, fwd }) {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [toCc, setToCc] = useState([]);
-  const [file, setFile] = useState(null);
+  // const [file, setFile] = useState(null);
+  const [files, setFiles] = useState([]);
   const fileInputRef = useRef(null);
 
+  // const handleFile = (e) => {
+  //   setFile(e.target.files[0]);
+  // };
+
   const handleFile = (e) => {
-    setFile(e.target.files[0]);
+    const selectedFiles = e.target.files;
+    setFiles((prevFiles) => [...(prevFiles || []), ...selectedFiles]);
   };
 
   useEffect(() => {
@@ -37,9 +43,13 @@ function Newmessage({ reply, fwd }) {
       });
       formData.append('subject', subject);
       formData.append('message', message);
-      if (file) {
+      // if (file) {
+      //   formData.append('attachments', file);
+      // }
+
+      files.forEach((file) => {
         formData.append('attachments', file);
-      }
+      });
       for (var pair of formData.entries()) {
         console.log(pair[0] + ', ' + pair[1]);
       }
@@ -63,7 +73,8 @@ function Newmessage({ reply, fwd }) {
       setTo('');
       setSubject('');
       setMessage('');
-      setFile(null);
+      // setFile(null);
+      setFiles([]);
       fileInputRef.current.value = null;
     } catch (error) {
       console.error("Erreur lors de l'envoi du message :", error);
@@ -126,7 +137,13 @@ function Newmessage({ reply, fwd }) {
           onChange={(e) => setMessage(e.target.value)}
         ></textarea>
         <div>
-          <input type="file" onChange={handleFile} ref={fileInputRef} />
+          {/* <input type="file" onChange={handleFile} ref={fileInputRef} /> */}
+          <input
+            type="file"
+            onChange={handleFile}
+            ref={fileInputRef}
+            multiple
+          />
         </div>
 
         <Button btnText="Envoyer" />
