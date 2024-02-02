@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function FormOTP({ handleCloseOtp, currentOtp, handleLogin, Notify }) {
+function FormOTP({ handleCloseOtp, handleOpenOtp, currentOtp, handleLogin, Notify }) {
   const [otp, setOtp] = useState('');
   const navigate = useNavigate();
 
@@ -31,10 +31,12 @@ function FormOTP({ handleCloseOtp, currentOtp, handleLogin, Notify }) {
   };
 
   return (
-    <Dialog onClose={handleCloseOtp}>
+    <Dialog 
+      open={handleOpenOtp}
+      onClose={handleCloseOtp}>
       <DialogTitle>Two Factors Authentication</DialogTitle>
 
-      <DialogContentText>
+      <DialogContentText paddingY={2}>
         Veuillez saisir le code OTP envoyé vers votre e-mail de sécurité
       </DialogContentText>
       <TextField

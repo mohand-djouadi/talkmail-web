@@ -81,6 +81,7 @@ function ForgotPassword({ handleClickOpen, handleClose }) {
   return (
     <React.Fragment>
       <Dialog
+        open={handleClickOpen}
         onClose={handleClose}
         PaperProps={{
           component: 'form',

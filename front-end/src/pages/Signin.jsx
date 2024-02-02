@@ -8,7 +8,7 @@ import main from '../assets/ab.png';
 import Logo from '../assets/Dark.png';
 import '../styles/signin.css';
 import ForgotPassword from '../components/forgotPassword';
-
+import AccordionUsage from '../components/AccordionUsage'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import FormOTP from '../components/FormOTP';
@@ -20,7 +20,7 @@ function Signin({ handleLogin }) {
   const [error, setError] = useState(false);
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [openCnd, setOpenCnd] = useState(false);
   const [openOtp, setOpenOtp] = useState(false);
   const [currentOtp, setCurrentOtp] = useState(0);
   const [openReset, setOpenReset] = useState(false);
@@ -33,12 +33,12 @@ function Signin({ handleLogin }) {
     setOpenReset(false);
   };
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  const handleOpenCnd = () => {
+    setOpenCnd(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleCloseCnd = () => {
+    setOpenCnd(false);
   };
 
   const handleOpenOtp = () => {
@@ -174,10 +174,24 @@ function Signin({ handleLogin }) {
                   cursor: 'pointer',
                   textDecoration: 'underline',
                 }}
-                onClick={handleClickOpen}
+                onClick={handleOpenReset}
               >
                 Forgot Password?
               </span>
+            </div>
+            <div style={{
+              marginTop: '.4rem',
+              marginLeft: '1rem'
+            }}>
+            <span 
+                className='forgot-password-link'
+                style={{
+                  color: 'spacegrey',
+                  cursor: 'pointer',
+                  textDecoration: 'underline',
+                }}
+                onClick={handleOpenCnd}
+              >condition d'utilisation</span>
             </div>
             <br></br>
             <br></br>
@@ -195,6 +209,7 @@ function Signin({ handleLogin }) {
         <div>
           <FormOTP
             handleCloseOtp={handleCloseOtp}
+            handleOpenOtp={handleOpenOtp}
             currentOtp={currentOtp}
             handleLogin={handleLogin}
             Notify={Notify}
@@ -202,12 +217,20 @@ function Signin({ handleLogin }) {
         </div>
       )}
 
-      {open && (
+      {openReset && (
         <div>
           <ForgotPassword
-            handleClose={handleClose}
-            handleOpenReset={handleOpenReset}
+            handleClose={handleCloseReset}
+            handleClickOpen={handleOpenReset}
             Notify={Notify}
+          />
+        </div>
+      )}
+      {openCnd && (
+        <div>
+          <AccordionUsage 
+            handleOpenCnd={handleOpenCnd}
+            handleCloseCnd={handleCloseCnd}
           />
         </div>
       )}
