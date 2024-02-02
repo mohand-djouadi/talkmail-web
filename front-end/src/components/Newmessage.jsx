@@ -21,26 +21,20 @@ function Newmessage({ reply, fwd }) {
 
   useEffect(() => {
     // Mise à jour de toCc lorsque to change
-    console.log('to: ', to);
+    // console.log('to: ', to);
     setToCc(to.split(/\s+/).filter((email) => email.trim() !== ''));
   }, [to]);
 
   const submitForm = async (e) => {
     e.preventDefault();
 
-    // console.log('Before setToCc:', to);
     setToCc(to.split(/\s+/).filter((email) => email.trim() !== ''));
     try {
       const user = JSON.parse(sessionStorage.getItem('user'));
-
       const formData = new FormData();
-
-      // const toEmails = to.split(/\s+/).filter((email) => email.trim() !== '');
-
-      // toEmails.forEach((email) => {
-      //   formData.append('to', email);
-      // });
-      formData.append('to', toCc);
+      toCc.forEach((email) => {
+        formData.append('to', email);
+      });
       formData.append('subject', subject);
       formData.append('message', message);
       if (file) {
@@ -50,10 +44,6 @@ function Newmessage({ reply, fwd }) {
         console.log(pair[0] + ', ' + pair[1]);
       }
 
-      console.log('to:', toCc);
-      console.log('subject:', subject);
-      console.log('message:', message);
-      console.log('file:', file);
 
       const response = await axios.post(
         'https://talkmail-server.onrender.com/api/mail/sendemail',
