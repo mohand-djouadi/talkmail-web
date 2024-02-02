@@ -1,0 +1,14 @@
+.inv-box {
+    padding: .5rem;
+    margin-top: .2rem;
+    overflow: hidden;
+}
+
+.user-desc {
+    float: left;
+}
+
+.add-user-btn {
+    margin-top: .5rem;
+    float: right;
+}

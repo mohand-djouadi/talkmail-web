@@ -1,0 +1,15 @@
+* {
+    color: black;
+}
+
+.event-box {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event div {
+    padding: .5rem;
+}

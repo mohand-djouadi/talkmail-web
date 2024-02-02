@@ -1,0 +1,5 @@
+.page-list {
+  width: 50vw;
+  border-right: 2px solid #aeefeb;
+  overflow-y: scroll;
+}

@@ -1,0 +1,18 @@
+/* #root {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+} */
+
+html {
+    font-size: 16px;
+}
+
+/* body {
+    background-color: none;
+    overflow: hidden;
+} */

@@ -1,0 +1,14 @@
+.event-title {
+    color: black;
+}
+
+.event-date {
+    color: black;
+}
+
+.event-item {
+    padding: .5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

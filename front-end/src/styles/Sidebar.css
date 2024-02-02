@@ -1,0 +1,36 @@
+aside {
+    background-color: #557bc8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 85px;
+    border-top-right-radius: 50px;
+
+}
+
+.navigate ul {
+    list-style: none;
+    margin: 145px 0 0 0;
+    padding: 20px 10px;
+}
+.navigate ul li img {
+    margin: 3px 0 0 3px;
+    padding: 5px;
+}
+.navigate ul li {
+    padding: 10px 0;
+    margin:  0 10px ;
+    display: inline-block;
+}
+
+.navigate  {
+    background-color: none;
+}
+.navigate ul li a.active {
+    display: inline-block;
+    background-color: #374957;
+    border-radius: 50%;
+    height: 45px;
+    width: 42px;
+}

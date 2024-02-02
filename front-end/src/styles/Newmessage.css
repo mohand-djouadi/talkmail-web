@@ -1,0 +1,40 @@
+.form-sendMsg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 300px;
+  margin: 20px auto;
+  background-color: #fff;
+  margin-top: 150px;
+  /* padding: 20px; */
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.mail-send {
+  color: #1a2e62;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  padding-left: 6px;
+}
+
+.PieceJointe-send {
+  color: #1a2e62;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  padding-left: 6px;
+}
+
+.input-sendMsg,
+.textarea-sendMsg {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}

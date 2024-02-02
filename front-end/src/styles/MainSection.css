@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+.main-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 70px;
+}
+.text-btn {
+  margin: 60px;
+  margin-top: 110px;
+  line-height: 1.5;
+}
+
+.slogan {
+  padding-top: 10px;
+  color: whitesmoke;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  -webkit-animation: fadeIn 2s ease-in-out forwards;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+span {
+  color: rgb(255, 255, 255);
+}
+.main-img img {
+  padding-top: 0px;
+  margin-right: 10px;
+}
+.enlarge-image {
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  -o-transition: transform 1s;
+  transition: transform 1s;
+  transition:
+    transform 1s,
+    -webkit-transform 1s;
+}
+.enlarge-image:hover {
+  -webkit-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9); /* Agrandir l'image de 20% au survol */
+}

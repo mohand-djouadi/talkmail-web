@@ -1,0 +1,76 @@
+.Principal-text {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1a2e62;
+  padding-bottom: 5px;
+  text-shadow: #1a2e62;
+}
+
+.email-details-modal-container {
+  position: fixed;
+  top: 15%;
+  left: 68%;
+  width: 350px;
+  max-width: 90%;
+  height: 75%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow-y: scroll;
+}
+
+.Date-details {
+  padding-inline-start: 200px;
+  margin: 10px;
+  color: #1a2e62;
+}
+
+.email-details-modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.typography-details-container {
+  float: right;
+}
+
+.Typography-details {
+  margin: 10px;
+  margin-bottom: 10px;
+}
+
+.send-rec-pic {
+  float: left;
+  margin-left: .5rem;
+  border-radius: 50%;
+  width: 99px;
+  height: 75px;
+}
+
+.message-container {
+  height: 75%;
+
+}
+
+.button-container-mail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.Button-close {
+  background-color: #031f67;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.Button-close:hover {
+  color: #1a2e62;
+}
+
+.email-details-content {
+  padding-bottom: 15px;
+}

@@ -1,0 +1,10 @@
+.calendar-box {
+  border-bottom: .2rem solid #aeefeb;
+  margin-top: 5rem
+}
+
+.events-list {
+  overflow-y: scroll;
+  margin-top: 1rem;
+  height: 12rem;
+}

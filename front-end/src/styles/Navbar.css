@@ -1,0 +1,78 @@
+.logo img {
+  max-width: 200px;
+  height: auto;
+  padding-top: 30px;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f4f8ff;
+  height: 15vh;
+}
+
+.list-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+.list-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 20px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+}
+
+.btn-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.btn-link li {
+  margin-right: 20px;
+}
+/* Navbar.css */
+.button-link1 {
+  /* Vos styles pour les boutons */
+  background-color: #2569ef; /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  padding: 15px 20px; /* Espacement intérieur */
+  text-align: center; /* Alignement du texte */
+  text-decoration: none; /* Pas de soulignement */
+  display: inline-block;
+  font-size: 25px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50px; /* Bord arrondi */
+  border: none; /* Pas de bordure */
+}
+
+.button-link2 {
+  /* Vos styles pour les boutons */
+  background-color: #557cc8; /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  padding: 15px 20px; /* Espacement intérieur */
+  text-align: center; /* Alignement du texte */
+  text-decoration: none; /* Pas de soulignement */
+  display: inline-block;
+  font-size: 25px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50px; /* Bord arrondi */
+  border: none; /* Pas de bordure */
+}

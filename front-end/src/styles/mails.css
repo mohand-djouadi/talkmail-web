@@ -1,0 +1,41 @@
+.mail-link {
+  text-decoration: none;
+  color: white;
+  font-size: small;
+}
+
+/* Dans ton fichier PageList.css */
+
+.page-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 30px;
+}
+
+.mail-item {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  color: rgb(27, 27, 27);
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+  padding: 15px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mail-item p {
+  margin: 5px 0;
+}
+
+.mail-item:hover {
+  background-color: #eaeaea;
+}

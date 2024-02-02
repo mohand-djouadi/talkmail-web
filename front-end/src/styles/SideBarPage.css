@@ -1,0 +1,38 @@
+.side-bar-page {
+  width: 18vw;
+  background-color: #1a2e62;
+  border-right: 2px solid #aeefeb;
+  color: "white";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.nav-item {
+  padding: 1rem 2rem 1rem 1rem;
+  margin-right: 2.5rem;
+  font-size: 13px;
+  display: block;
+  text-decoration: none;
+  color: #ffffff;
+  -webkit-transition: background-color 0.1s;
+  -o-transition: background-color 0.1s;
+  transition: background-color 0.1s;
+
+}
+
+.nav-item:active {
+  background-color: #333333;
+}
+
+.nav-item.active {
+  color: black;
+  background-color: #374957;
+  border-radius: 0 25px 25px 0;
+}

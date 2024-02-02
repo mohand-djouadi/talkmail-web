@@ -1,0 +1,118 @@
+.form-box {
+  height: 100vh;
+  width: 100vw;
+}
+
+.form-box .eventForm {
+  width: 75%;
+  height: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 5.5rem;
+  margin-left: 3rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: end;
+}
+
+.eventForm input[type="datetime-local"] {
+  padding: 0.5em;
+  border: none;
+  width: 50%;
+  border-bottom: 1px solid black;
+}
+
+.eventForm input[type="text"] {
+  padding: 0.5em;
+  border: none;
+  width: 75%;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.inputs {
+  width: 75%;
+  margin: .6rem 0;
+}
+
+.inputs label {
+  margin: .6rem 5rem 0 0;
+  color: black;
+}
+
+.fin {
+  margin-left: 15px;
+}
+
+.check {
+  display: inline;
+}
+
+.toggle {
+  margin: 1.5rem 16rem 0 0;
+}
+
+.toggle input[type="checkbox"] {
+  display: none;
+}
+
+.toggle label {
+  position: relative;
+  color: black;
+}
+
+.toggle input[type="checkbox"]+label::before {
+  content: ' ';
+  display: block;
+  height: 10px;
+  width: 35px;
+  margin-top: 2px;
+  border: 1px solid #4281A4;
+  border-radius: 9px;
+  position: absolute;
+  top: 0px;
+  left: -65px;
+  background: #557bc8;
+}
+
+.toggle input[type="checkbox"]+label::after {
+  content: ' ';
+  display: block;
+  height: 20px;
+  width: 20px;
+  margin-top: 4px;
+  border-radius: 50%;
+  position: absolute;
+  top: -6px;
+  left: -75px;
+  background: #1A2E62;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.toggle input[type="checkbox"]:checked+label::after {
+  left: -40px;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.form-box form input[type='submit'] {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 25px;
+  color: black;
+  background-color: #557CC8;
+  text-align: center;
+  margin-right: 38%;
+  font-weight: bold;
+}

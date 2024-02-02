@@ -1,0 +1,43 @@
+.input-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    .input-emoji-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      .input-field {
+        display: block;
+        width: 100%;
+        padding: 8px 16px;
+        line-height: 25px;
+        font-size: 16px;
+        font-weight: 500;
+        font-family: inherit;
+        border-radius: 6px;
+      }
+      .emoji-icon {
+        all: unset;
+        position: absolute;
+        right: 10px;
+        z-index: 50;
+      }
+    }
+    .send-button {
+      all: unset;
+      border-radius: 6px;
+      text-align: center;
+      padding: 8px 20px;
+      font-size: 18px;
+      font-weight: 500;
+      color: white;
+      background-color: black;
+    }
+    .picker-container {
+      position: absolute;
+      bottom: 50px;
+    }
+  }

@@ -1,0 +1,76 @@
+.button {
+  background-color: #557cc8;
+  padding: 15px;
+  text-decoration: none;
+  color: white;
+  border-radius: 20px;
+}
+
+.send-button {
+  padding: 10px 15px;
+  margin: 1.2rem 1.5rem 1.5rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  color: black;
+  background-color: #557cc8;
+  font-weight: bold;
+}
+
+.button-link1 {
+  background-color: #1a2e62;
+  padding: 15px;
+  text-decoration: none;
+  color: white;
+  border-radius: 30px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.button-link2 {
+  font-family: 'Montserrat', sans-serif;
+  height: 25px;
+  font-size: large;
+}
+
+.button-link1:hover {
+  background-color: #325396;
+}
+
+.button-link2:hover {
+  background-color: rgb(5, 100, 195);
+}
+
+.start-button {
+  font-size: xx-large;
+}
+
+.signup-btn {
+  width: 20%;
+  margin-left: 30px;
+  padding: 10px;
+  background-color: #557cc8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.signup-btn:hover {
+  background-color: rgb(5, 100, 195);
+}
+
+.signin-btn {
+  margin-left: 15px;
+  width: 30%;
+  padding: 15px;
+  background-color: #557cc8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.signin-btn:hover {
+  background-color: rgb(5, 100, 195);
+}
