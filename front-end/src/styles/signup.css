@@ -30,7 +30,8 @@
 
 .left-section {
   padding-right: 50px;
-  width: 45%; /* afin de diviser la page  */
+  width: 45%;
+  /* afin de diviser la page  */
   height: 100vh;
   background-color: #e2ebfc;
 }
@@ -51,7 +52,7 @@
   width: 60%;
   padding-right: 10px;
   height: 100vh;
-  background-color: #1a2e62 !important ;
+  background-color: #1a2e62 !important;
 }
 
 .signup-container {
@@ -63,6 +64,7 @@
 .img-signup img {
   padding-top: 0px;
 }
+
 .sign-title {
   padding-top: 50px;
   font-weight: 900;
@@ -78,6 +80,7 @@
     -webkit-transform: translateY(20px);
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     -webkit-transform: translateY(0);
@@ -91,6 +94,7 @@
     -webkit-transform: translateY(20px);
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     -webkit-transform: translateY(0);
@@ -105,24 +109,28 @@
   -webkit-animation: fadeInRight 0.5s ease forwards;
   animation: fadeInRight 0.5s ease forwards;
 }
+
 @-webkit-keyframes fadeInRight {
   from {
     opacity: 0;
     -webkit-transform: translateX(-20px);
     transform: translateX(-20px);
   }
+
   to {
     opacity: 1;
     -webkit-transform: translateX(0);
     transform: translateX(0);
   }
 }
+
 @keyframes fadeInRight {
   from {
     opacity: 0;
     -webkit-transform: translateX(-20px);
     transform: translateX(-20px);
   }
+
   to {
     opacity: 1;
     -webkit-transform: translateX(0);
@@ -153,7 +161,8 @@
 }
 
 .auth-form form {
-  max-width: 300px; /* Définissez une largeur maximale pour le formulaire */
+  max-width: 300px;
+  /* Définissez une largeur maximale pour le formulaire */
   text-align: center;
 }
 
@@ -171,9 +180,11 @@
   width: 70%;
   margin: 5px;
   margin-left: 30px;
-  padding: 6px; /* Ajuster le padding pour le fond blanc */
+  padding: 6px;
+  /* Ajuster le padding pour le fond blanc */
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: white; /* Ajouter le fond blanc */
+  background-color: white;
+  /* Ajouter le fond blanc */
 }

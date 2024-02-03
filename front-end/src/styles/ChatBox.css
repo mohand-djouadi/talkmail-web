@@ -3,10 +3,25 @@
     height: 97%;
     background: none;
     /* padding: 1rem 0 0rem 1rem; */
-    background-color: #1a2e62;
+    background-color: #a9b9e3;
     border-right: 2px solid #aeefeb;
     width: 20vw;
     color: white;
+}
+
+.chat-box-text {
+    color: white !important;
+}
+
+.profile-pic {
+    width: 100px;
+    /* Ajustez la largeur de l'image selon vos préférences */
+    height: 100px;
+    /* Ajustez la hauteur de l'image selon vos préférences */
+    border-radius: 50%;
+    /* Assurez-vous que l'image est ronde en définissant un rayon de bordure égal à la moitié de la largeur/hauteur */
+    object-fit: cover;
+    /* Assurez-vous que l'image couvre complètement le cadre sans se déformer */
 }
 
 .contact-list {
@@ -18,7 +33,6 @@
     flex-direction: column;
     -ms-flex-pack: distribute;
     justify-content: space-around;
-    color: white;
 }
 
 ::-webkit-scrollbar {

@@ -6,12 +6,13 @@ import { ToastContainer, toast } from 'react-toastify';
 
 function AccountSettingsForm({ email, handleLogout }) {
   const user = JSON.parse(sessionStorage.getItem('user'));
+  const profilePicture = localStorage.getItem('profilePicture');
+
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
   const [profilePic, setProfilePic] = useState(user.pic);
   const [loading, setLoading] = useState(false);
-  const profilePicture = localStorage.getItem('profilePicture');
   const [tfa, setTfa] = useState(user.twoFA);
 
   const navigate = useNavigate();
@@ -97,7 +98,7 @@ function AccountSettingsForm({ email, handleLogout }) {
   //       { newPic: newProfilePicUrl },
   //       {
   //         headers: {
-  //           Authorization: `Bearer ${user.token}`,
+  //           Authorization: Bearer ${user.token},
   //           'Content-Type': 'application/json',
   //         },
   //       },
@@ -142,7 +143,7 @@ function AccountSettingsForm({ email, handleLogout }) {
   const changePassword = async () => {
     try {
       const response = await axios.put(
-        'https://talkmail-server.onrender.com/api/user/changepassword',
+        'https://talkmail-server.onrender.com/user/changepassword',
         {
           currentPassword: oldPassword,
           newPassword: newPassword,
@@ -172,7 +173,7 @@ function AccountSettingsForm({ email, handleLogout }) {
   const deleteUser = async () => {
     try {
       const response = await axios.delete(
-        `https://talkmail-server.onrender.com/api/user/delete/${user._id}`,
+        `http://localhost:4001/api/user/delete/${user._id}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -195,7 +196,9 @@ function AccountSettingsForm({ email, handleLogout }) {
         setProfilePic(reader.result);
       };
       reader.readAsDataURL(file);
+      document.querySelector('.profile-pic').src = { file };
     }
+    console.log('dhjfd', file);
   };
 
   const handleConfirmChange = () => {
@@ -238,8 +241,7 @@ function AccountSettingsForm({ email, handleLogout }) {
         <label className="option">Changer la photo de profil</label>
         <img
           src={
-            profilePic ||
-            profilePicture ||
+            user.pic ||
             'https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg'
           }
           alt="Profile Pic"
@@ -295,10 +297,7 @@ function AccountSettingsForm({ email, handleLogout }) {
             <button className="logout-button">Logout</button>
           </Link>
         </div>
-        <label>
-          Activer l'authentification à deux facteurs
-          <input type="checkbox" checked={tfa} onChange={() => twoFactors()} />
-        </label>
+        
       </div>
       <ToastContainer />
     </div>

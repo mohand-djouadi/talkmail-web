@@ -1,33 +1,25 @@
 .form-sendMsg {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
   width: 300px;
   margin: 20px auto;
   background-color: #fff;
   margin-top: 150px;
-  /* padding: 20px; */
   border-radius: 8px;
-  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  background-image: url('../assets/img.png');
+  background-size: cover;
+  /* Ajustez la taille de l'image pour couvrir l'ensemble du conteneur */
+  background-position: center;
+  opacity: 0.8;
 }
 
 .mail-send {
-  color: #1a2e62;
+  color: black;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  padding-left: 6px;
-}
-
-.PieceJointe-send {
-  color: #1a2e62;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  padding-left: 6px;
+  margin-bottom: 10px;
 }
 
 .input-sendMsg,
@@ -37,4 +29,18 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
+  width: 100%;
+}
+
+.textarea-sendMsg {
+  resize: vertical;
+}
+
+.file-input {
+  margin-bottom: 15px;
+}
+
+.button-send {
+  width: 100%;
+  width: max-content;
 }

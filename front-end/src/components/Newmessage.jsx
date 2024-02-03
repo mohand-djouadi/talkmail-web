@@ -2,23 +2,18 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Button from '../components/Button';
 import '../styles/Newmessage.css';
+import backgroundImg from '../assets/img.png';
 
 function Newmessage({ reply, fwd }) {
   const [to, setTo] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [toCc, setToCc] = useState([]);
-  // const [file, setFile] = useState(null);
-  const [files, setFiles] = useState([]);
+  const [file, setFile] = useState(null);
   const fileInputRef = useRef(null);
 
-  // const handleFile = (e) => {
-  //   setFile(e.target.files[0]);
-  // };
-
   const handleFile = (e) => {
-    const selectedFiles = e.target.files;
-    setFiles((prevFiles) => [...(prevFiles || []), ...selectedFiles]);
+    setFile(e.target.files[0]);
   };
 
   useEffect(() => {
@@ -27,33 +22,39 @@ function Newmessage({ reply, fwd }) {
 
   useEffect(() => {
     // Mise à jour de toCc lorsque to change
-    // console.log('to: ', to);
+    console.log('to: ', to);
     setToCc(to.split(/\s+/).filter((email) => email.trim() !== ''));
   }, [to]);
 
   const submitForm = async (e) => {
     e.preventDefault();
 
+    // console.log('Before setToCc:', to);
     setToCc(to.split(/\s+/).filter((email) => email.trim() !== ''));
     try {
       const user = JSON.parse(sessionStorage.getItem('user'));
+
       const formData = new FormData();
-      toCc.forEach((email) => {
-        formData.append('to', email);
-      });
+
+      // const toEmails = to.split(/\s+/).filter((email) => email.trim() !== '');
+
+      // toEmails.forEach((email) => {
+      //   formData.append('to', email);
+      // });
+      formData.append('to', toCc);
       formData.append('subject', subject);
       formData.append('message', message);
-      // if (file) {
-      //   formData.append('attachments', file);
-      // }
-
-      files.forEach((file) => {
+      if (file) {
         formData.append('attachments', file);
-      });
+      }
       for (var pair of formData.entries()) {
         console.log(pair[0] + ', ' + pair[1]);
       }
 
+      console.log('to:', toCc);
+      console.log('subject:', subject);
+      console.log('message:', message);
+      console.log('file:', file);
 
       const response = await axios.post(
         'https://talkmail-server.onrender.com/api/mail/sendemail',
@@ -73,8 +74,7 @@ function Newmessage({ reply, fwd }) {
       setTo('');
       setSubject('');
       setMessage('');
-      // setFile(null);
-      setFiles([]);
+      setFile(null);
       fileInputRef.current.value = null;
     } catch (error) {
       console.error("Erreur lors de l'envoi du message :", error);
@@ -105,7 +105,7 @@ function Newmessage({ reply, fwd }) {
       <form className="form-sendMsg" onSubmit={submitForm}>
         <br></br>
         <p className="mail-send">
-          {subject === '' ? 'new mail' : `${subject}`}
+          {subject === '' ? 'Nouveau Mail' : `${subject}`}
         </p>
         <br></br>
         <input
@@ -137,13 +137,7 @@ function Newmessage({ reply, fwd }) {
           onChange={(e) => setMessage(e.target.value)}
         ></textarea>
         <div>
-          {/* <input type="file" onChange={handleFile} ref={fileInputRef} /> */}
-          <input
-            type="file"
-            onChange={handleFile}
-            ref={fileInputRef}
-            multiple
-          />
+          <input type="file" onChange={handleFile} ref={fileInputRef} />
         </div>
 
         <Button btnText="Envoyer" />

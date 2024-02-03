@@ -21,20 +21,24 @@ import {
   ModalDialog,
   Stack,
 } from '@mui/joy';
-import { Add } from '@mui/icons-material';
+import { Add, Call } from '@mui/icons-material';
 import UserListItem from './UserListItem';
 import GroupChatModal from './GroupChatModal';
 import '../styles/ChatBox.css';
 import '../styles/SearchChat.css';
 import { getSender } from '../context/ChatLogics';
+// import ringtone from '../sounds/incomingcall.mp3';
 
 function ChatBox({ fetchAgain }) {
   const [loggedUser, setLoggedUser] = useState();
   const [search, setSearch] = useState('');
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [callingUser, setCallingUser] = useState(null);
   const [open, setOpen] = useState(false);
   const [loadingChat, setLoadingChat] = useState();
+
   const { user, setSelectedChat, chats, setChats, selectedChat } =
     useContext(ChatState);
 
@@ -46,18 +50,42 @@ function ChatBox({ fetchAgain }) {
     setOpen(false);
   };
 
+  const handleVoiceCall = async (chatId, user) => {
+    // Ouvrir la modal et définir les informations de la personne appelée
+    setOpenModal(true);
+    setCallingUser(user);
+
+    try {
+      const user = JSON.parse(sessionStorage.getItem('user'))
+      // Envoyer une demande au serveur pour démarrer l'appel vocal avec l'ID de la conversation ou de l'utilisateur
+      const { data } = await axios.post(
+        `https://talkmail-server.onrender.com/api/chat/${chatId}/voice-call`,
+        null,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        },
+      );
+      console.log('Voice call started:', data);
+      // Gérer la réponse du serveur et les actions nécessaires
+    } catch (error) {
+      console.log('Error starting voice call:', error);
+    }
+  };
+
   const fetchChats = async () => {
     const userToken = JSON.parse(sessionStorage.getItem('user')).token;
 
     try {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-        },
-      };
+      
       const { data } = await axios.get(
         'https://talkmail-server.onrender.com/api/chat',
-        config,
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        },
       );
       setChats(data);
     } catch (error) {
@@ -119,6 +147,7 @@ function ChatBox({ fetchAgain }) {
     setLoggedUser(JSON.parse(localStorage.getItem('userInfo')));
     fetchChats();
   }, [fetchAgain]);
+
   return (
     <div className="contact-nav">
       <Input
@@ -128,38 +157,49 @@ function ChatBox({ fetchAgain }) {
       />
       <div className="contact-list" style={{ color: 'white' }}>
         {loading ? (
-          <div>loadin</div>
+          <div>Loading...</div>
         ) : (
-          searchResult?.slice(0, 4).map((userr) => (
+          searchResult?.slice(0, 4).map((user) => (
             <UserListItem
-              key={userr._id}
-              user={userr}
-              handleFunction={() => accessChat(userr)}
+              className="chat-box-text"
+              key={user._id}
+              user={user}
+              handleFunction={() => accessChat(user)}
               color="white"
             >
-              {userr.lastname}
+              {user.lastname}
             </UserListItem>
           ))
         )}
         {chats.map((chat) => (
           <Box
+            className="chat-box-text"
             onClick={() => setSelectedChat(chat)}
             cursor="pointer"
-            backgroundColor={selectedChat === chat ? '#374957' : '#1a2e62'}
+            border={1}
+            backgroundColor={selectedChat === chat ? '#89badf' : '#557cc8c4'}
             color={selectedChat === chat ? 'white' : 'white'}
             style={{}}
             px={3}
             py={2}
             borderRadius="lg"
-            key={chat._id}
+            key={chat.id}
           >
-            <Typography>
+            <Typography className="chat-box-text">
               {!chat.isGroupChat
                 ? chat.users && chat.users.length > 0
                   ? getSender(user, chat.users)
-                  : 'unknown sender'
+                  : 'Unknown sender'
                 : chat.chatName}
             </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => handleVoiceCall(chat._id)}
+              startIcon={<Call />}
+            >
+              Voice Call
+            </Button>
             {chat.latestMessage && (
               <p fontSize="xs">
                 <b>{chat.latestMessage?.sender?.firstname} : </b>
@@ -172,8 +212,44 @@ function ChatBox({ fetchAgain }) {
           </Box>
         ))}
       </div>
+      {/* Modal pour l'appel vocal */}
+      <Modal open={openModal} onClose={() => setOpenModal(false)}>
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 400,
+            bgcolor: 'background.paper',
+            boxShadow: 24,
+            p: 4,
+          }}
+        >
+          {/* Contenu de la modal */}
+          <Typography variant="h5" align="center" gutterBottom>
+            Appel en cours...
+          </Typography>
+          {callingUser && (
+            <>
+              <img
+                src={
+                  localStorage.getItem('profilePic') ||
+                  'https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg'
+                }
+                alt="Profile Pic"
+                className="profile-pic"
+              />{' '}
+              <Typography variant="h6" align="center" gutterBottom>
+                {callingUser.name}
+              </Typography>
+            </>
+          )}
+        </Box>
+      </Modal>
       <GroupChatModal>
         <Button
+          className="chat-box-text"
           style={{ margin: '1.5rem', backgroundColor: '#557cc8' }}
           variant="filled"
           onClick={handleClickOpen}

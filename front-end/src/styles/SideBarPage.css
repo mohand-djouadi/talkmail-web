@@ -2,16 +2,46 @@
   width: 18vw;
   background-color: #1a2e62;
   border-right: 2px solid #aeefeb;
-  color: "white";
+  color: 'white';
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
+}
+
+.icon {
+  background-color: whitesmoke;
+  margin-left: 5px;
+}
+
+.icon-outbox {
+  background-color: whitesmoke;
+  margin-left: 8px;
+}
+
+.icon-important {
+  background-color: whitesmoke;
+  margin-left: 13px;
+}
+
+.icon-starred {
+  background-color: whitesmoke;
+  margin-left: 8px;
+}
+
+.icon-drafts {
+  background-color: whitesmoke;
+  margin-left: 6px;
+}
+
+.icon-bin {
+  background-color: whitesmoke;
+  margin-right: 10px;
 }
 
 .nav-item {
@@ -24,7 +54,6 @@
   -webkit-transition: background-color 0.1s;
   -o-transition: background-color 0.1s;
   transition: background-color 0.1s;
-
 }
 
 .nav-item:active {

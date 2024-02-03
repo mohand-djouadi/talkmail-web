@@ -110,29 +110,22 @@ const EmailDetailsModal = ({
             {emailInfo.message || 'N/A'}
           </Typography>
           {emailInfo.attachments && emailInfo.attachments.length > 0 && (
-            <div className="attachments-section">
-              <Typography className="Typography-details">
-                Attachments:
-              </Typography>
-              <ul>
-                {emailInfo.attachments.map((attachment) => (
-                  <li key={attachment._id}>
-                    <a
-                      href={attachment.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      download={attachment.path}
-                    >
-                      {attachment.filename}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <button onClick={handleDownload}>
-                Télécharger la piéce jointe
-              </button>
-            </div>
-          )}
+  <div className="attachments-section">
+    <Typography className="Typography-details">
+      Attachments:
+    </Typography>
+    <ul>
+      {emailInfo.attachments.map((attachment) => (
+        <li key={attachment._id}>
+          <button onClick={() => handleDownload(attachment)}>
+            Télécharger {attachment.filename}
+          </button>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
         </div>
         <div className="button-container-mail">
           <Button onClick={handleReply} className="Button-modal">

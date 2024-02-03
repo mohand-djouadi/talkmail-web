@@ -28,7 +28,7 @@ function Navbar(props) {
             <Button
               btnLink="/signup"
               btnText="Créer un compte"
-              CustomClass="button-link1"
+              CustomClass="button-link3"
             />
           </li>
         </ul>

@@ -20,6 +20,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function ForgotPassword({ handleClickOpen, handleClose }) {
   const [email, setEmail] = useState('');
   const [securityAnswer, setSecurityAnswer] = useState('');
+  const [selectedSecurityQuestion, setSelectedSecurityQuestion] = useState('');
   const [newPassword, setNewPassword] = useState('');
 
   const Notify = (message) => {
@@ -132,12 +133,16 @@ function ForgotPassword({ handleClickOpen, handleClose }) {
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               label="Age"
+              value={selectedSecurityQuestion}
+              onChange={(e) => setSelectedSecurityQuestion(e.target.value)}
             >
-              <MenuItem>
+              <MenuItem value="animal">
                 Quel est le nom de votre premier animal de compagnie ?
               </MenuItem>
-              <MenuItem>Quel est le nom de votre enseignant préféré ?</MenuItem>
-              <MenuItem>
+              <MenuItem value="teacher">
+                Quel est le nom de votre enseignant préféré ?
+              </MenuItem>
+              <MenuItem value="address">
                 Quel est l'adresse de votre maison d'enfance ?
               </MenuItem>
             </Select>
