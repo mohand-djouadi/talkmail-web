@@ -49,23 +49,17 @@ const EmailDetailsModal = ({
           },
         },
       );
-
       const blob = new Blob([response.data], {
         type: response.headers['content-type'],
       });
-
-      // return blob;
-      // Create a download link
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
       link.setAttribute('download', emailInfo.attachments[0].filename);
 
-      // Trigger the download
       document.body.appendChild(link);
       link.click();
 
-      // Clean up
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
     } catch (error) {
@@ -121,7 +115,8 @@ const EmailDetailsModal = ({
                       href={attachment.path}
                       target="_blank"
                       rel="noopener noreferrer"
-                      download={attachment.path}
+                      // download={attachment.path}
+                      download={attachment.filename}
                     >
                       {attachment.filename}
                     </a>
