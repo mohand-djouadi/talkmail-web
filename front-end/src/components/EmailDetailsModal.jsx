@@ -56,6 +56,7 @@ const EmailDetailsModal = ({
       const link = document.createElement('a');
       link.href = url;
       link.setAttribute('download', emailInfo.attachments[0].filename);
+      console.log('Downloading file:', emailInfo.attachments[0].filename);
 
       document.body.appendChild(link);
       link.click();
